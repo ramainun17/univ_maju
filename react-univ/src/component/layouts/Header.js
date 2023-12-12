@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,14 +10,14 @@ function Header() {
         <ul className="navbar-nav ml-auto">
           {/* Navbar Search */}
           <li className="nav-item">
-            <a
+            <Link
               className="nav-link"
               data-widget="navbar-search"
-              href="/"
+              to="#"
               role="button"
             >
               <i className="fas fa-search" />
-            </a>
+            </Link>
             <div className="navbar-search-block">
               <form className="form-inline">
                 <div className="input-group input-group-sm">
@@ -44,12 +45,12 @@ function Header() {
           </li>
           {/* Messages Dropdown Menu */}
           <li className="nav-item dropdown">
-            <a className="nav-link" data-toggle="dropdown" href="/">
+            <Link className="nav-link" data-toggle="dropdown" to="#">
               <i className="far fa-comments" />
               <span className="badge badge-danger navbar-badge">3</span>
-            </a>
+            </Link>
             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 {/* Message Start */}
                 <div className="media">
                   <img
@@ -71,9 +72,9 @@ function Header() {
                   </div>
                 </div>
                 {/* Message End */}
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 {/* Message Start */}
                 <div className="media">
                   <img
@@ -95,9 +96,9 @@ function Header() {
                   </div>
                 </div>
                 {/* Message End */}
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 {/* Message Start */}
                 <div className="media">
                   <img
@@ -119,64 +120,64 @@ function Header() {
                   </div>
                 </div>
                 {/* Message End */}
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item dropdown-footer">
+              <Link to="/#" className="dropdown-item dropdown-footer">
                 See All Messages
-              </a>
+              </Link>
             </div>
           </li>
           {/* Notifications Dropdown Menu */}
           <li className="nav-item dropdown">
-            <a className="nav-link" data-toggle="dropdown" href="/">
+            <Link className="nav-link" data-toggle="dropdown" to="#">
               <i className="far fa-bell" />
               <span className="badge badge-warning navbar-badge">15</span>
-            </a>
+            </Link>
             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
               <span className="dropdown-item dropdown-header">
                 15 Notifications
               </span>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 <i className="fas fa-envelope mr-2" /> 4 new messages
                 <span className="float-right text-muted text-sm">3 mins</span>
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 <i className="fas fa-users mr-2" /> 8 friend requests
                 <span className="float-right text-muted text-sm">12 hours</span>
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
+              <Link to="/#" className="dropdown-item">
                 <i className="fas fa-file mr-2" /> 3 new reports
                 <span className="float-right text-muted text-sm">2 days</span>
-              </a>
+              </Link>
               <div className="dropdown-divider" />
-              <a href="/" className="dropdown-item dropdown-footer">
+              <Link to="/#" className="dropdown-item dropdown-footer">
                 See All Notifications
-              </a>
+              </Link>
             </div>
           </li>
           <li className="nav-item">
-            <a
+            <Link
               className="nav-link"
               data-widget="fullscreen"
-              href="/"
+              to="#"
               role="button"
             >
               <i className="fas fa-expand-arrows-alt" />
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
+            <Link
               className="nav-link"
               data-widget="control-sidebar"
               data-controlsidebar-slide="true"
-              href="/"
+              to="#"
               role="button"
             >
               <i className="fas fa-th-large" />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

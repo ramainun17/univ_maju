@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function SideNav() {
   const [dropdownStates, setDropdownStates] = useState({
@@ -19,7 +21,7 @@ function SideNav() {
   return (
     <div className="App">
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="index3.html" className="brand-link">
+        <Link to="#" className="brand-link">
           <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
@@ -27,7 +29,7 @@ function SideNav() {
             style={{ opacity: ".8" }}
           />
           <span className="brand-text font-weight-light">UNIV MAJU</span>
-        </a>
+        </Link>
 
         {/* ... (Bagian lain dari sidebar) */}
         <nav className="mt-2">
@@ -43,32 +45,32 @@ function SideNav() {
                 dropdownStates.mahasiswa ? "menu-open" : ""
               }`}
             >
-              <a href="/#" onClick={() => handleDropdownToggle("mahasiswa")} className="nav-link">
+              <Link to="#" onClick={() => handleDropdownToggle("mahasiswa")} className="nav-link">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
                   Mahasiswa
                   <i className="right fas fa-angle-left" />
                 </p>
-              </a>
+              </Link>
               {/* Submenu */}
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="./index.html" className="nav-link">
+                  <Link to="./index.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v1</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index2.html" className="nav-link">
+                  <Link to="./index2.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v2</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index3.html" className="nav-link">
+                  <Link to="./index3.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v3</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -86,32 +88,32 @@ function SideNav() {
             <li
               className={`nav-item ${dropdownStates.dosen ? "menu-open" : ""}`}
             >
-              <a href="/#" onClick={() => handleDropdownToggle("dosen")} className="nav-link">
+              <Link to="/#" onClick={() => handleDropdownToggle("dosen")} className="nav-link">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
                   Dosen
                   <i className="right fas fa-angle-left" />
                 </p>
-              </a>
+              </Link>
               {/* Submenu */}
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="./index.html" className="nav-link">
+                  <Link to="./index.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v1</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index2.html" className="nav-link">
+                  <Link to="./index2.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v2</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index3.html" className="nav-link">
+                  <Link to="./index3.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Dashboard v3</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -131,32 +133,32 @@ function SideNav() {
                 dropdownStates.administrasi ? "menu-open" : ""
               }`}
             >
-              <a href="/#" onClick={() => handleDropdownToggle("administrasi")} className="nav-link">
+              <Link to="/#" onClick={() => handleDropdownToggle("administrasi")} className="nav-link">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
                   Administrasi
                   <i className="right fas fa-angle-left" />
                 </p>
-              </a>
+              </Link>
               {/* Submenu */}
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="./index.html" className="nav-link">
+                  <Link to="admin/mahasiswa" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v1</p>
-                  </a>
+                    <p>Mahasiswa</p>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index2.html" className="nav-link">
+                  <Link to="/admin/dosen" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v2</p>
-                  </a>
+                    <p>Dosen</p>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="./index3.html" className="nav-link">
+                  <Link to="admin/matkul" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v3</p>
-                  </a>
+                    <p>Mata Kuliah</p>
+                  </Link>
                 </li>
               </ul>
             </li>

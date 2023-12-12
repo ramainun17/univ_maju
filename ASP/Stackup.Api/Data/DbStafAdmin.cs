@@ -40,6 +40,44 @@ public class DbStafAdmin
         }
         return mhslist;
     }
+    public Mahasiswa GetMahasiswaById(int nim){
+        Mahasiswa mahasiswa = null;
+
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM mahasiswa WHERE Nim = @Nim";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    // Menggunakan parameterized query untuk mencegah SQL injection
+                    command.Parameters.AddWithValue("@Nim", nim);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            mahasiswa = new Mahasiswa
+                            {
+                                nim = Convert.ToInt32(reader["Nim"]),
+                                nama = reader["Nama"].ToString(),
+                                prodi = reader["Prodi"].ToString(),
+                            };
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log or return to caller)
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+
+        return mahasiswa;
+    }
     public int CreateMahasiswa(Mahasiswa mhs){
         using (MySqlConnection connection = _connection)
         {
@@ -112,6 +150,43 @@ public class DbStafAdmin
         }
         return dsnlist;
     }
+    public Dosen GetDosenById(int id_dosen){
+        Dosen dosen = null;
+
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM dosen WHERE id_dosen = @Id_dosen";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    // Menggunakan parameterized query untuk mencegah SQL injection
+                    command.Parameters.AddWithValue("@Id_dosen", id_dosen);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            dosen = new Dosen
+                            {
+                                id_dosen = Convert.ToInt32(reader["Id_dosen"]),
+                                nama = reader["Nama"].ToString(),
+                            };
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log or return to caller)
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+
+        return dosen;
+    }
     public int CreateDosen(Dosen dsn){
         using (MySqlConnection connection = _connection)
         {
@@ -182,6 +257,44 @@ public class DbStafAdmin
             Console.WriteLine(ex.Message);
         }
         return mkdlist;
+    }
+    public Matkul GetMatkulById(int id_matkul){
+        Matkul mk = null;
+
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM matkul WHERE id_matkul = @Id_matkul";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    // Menggunakan parameterized query untuk mencegah SQL injection
+                    command.Parameters.AddWithValue("@Id_matkul", id_matkul);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            mk = new Matkul
+                            {
+                                id_matkul = Convert.ToInt32(reader["Id_matkul"]),
+                                nama_matkul = reader["Nama_matkul"].ToString(),
+                                id_dosen = Convert.ToInt32(reader["Id_dosen"]),
+                            };
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log or return to caller)
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+
+        return mk;
     }
     public int CreateMatkul(Matkul mk){
         using (MySqlConnection connection = _connection)

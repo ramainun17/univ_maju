@@ -2,10 +2,9 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function AdminMhsAdd() {
+function AdminDsnAdd() {
     const [formValue, setformValue] = React.useState({
         nama: "",
-        prodi: "",
       });
       const handleChange = (event) => {
         setformValue({
@@ -17,13 +16,12 @@ function AdminMhsAdd() {
         // store the states in the form data
         const FormDataInput = new FormData();
         FormDataInput.append("nama", formValue.nama);
-        FormDataInput.append("prodi", formValue.prodi);
         alert("Data berhasil disimpan");
         try {
           // make axios post request
           const response = await axios({
             method: "post",
-            url: "https://localhost:7208/api/StafAdmin/mahasiswa/create",
+            url: "https://localhost:7208/api/StafAdmin/dosen/create",
             data: FormDataInput,
             headers: { "Content-Type": "application/json" },
           });
@@ -45,9 +43,9 @@ function AdminMhsAdd() {
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item text-decoration-none">
-                  <Link to="/admin/mahasiswa">Administrasi</Link>
+                  <Link to="/admin/dosen">Administrasi</Link>
                 </li>
-                <li className="breadcrumb-item active">Mahasiswa</li>
+                <li className="breadcrumb-item active">Dosen</li>
               </ol>
             </div>
           </div>
@@ -61,7 +59,7 @@ function AdminMhsAdd() {
             <div className="col-12">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">Tambah Mahasiswa</h3>
+                  <h3 className="card-title">Tambah Dosen</h3>
                 </div>
                 {/* /.card-header */}
                 <div className="card-body">
@@ -70,10 +68,6 @@ function AdminMhsAdd() {
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Nama</label>
                                 <input type="text" className="form-control" name="nama" placeholder="Masukkan Nama" onChange={handleChange} value={formValue.nama}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Prodi</label>
-                                <input type="text" className="form-control" name="prodi" placeholder="Masukkan Prodi" onChange={handleChange} value={formValue.prodi}/>
                             </div>
                             <div>
                                 <button type="submit" className="btn btn-primary"> {" "} Tambah</button>
@@ -98,4 +92,4 @@ function AdminMhsAdd() {
   );
 }
 
-export default AdminMhsAdd;
+export default AdminDsnAdd;

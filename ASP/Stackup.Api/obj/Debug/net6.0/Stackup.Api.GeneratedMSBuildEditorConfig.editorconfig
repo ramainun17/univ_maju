@@ -9,9 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Stackup.Api
 build_property.RootNamespace = Stackup.Api
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\LENOVO\Documents\TUGAS ITS\DAY-25 React js\tugas\univ_maju\ASP\Stackup.Api\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\LENOVO\Documents\TUGAS ITS\DAY-25 React js\tugas\univ_maju\ASP\Stackup.Api
+=======
+build_property.ProjectDir = e:\UT School\ReactJS\Project\ASP\Stackup.Api\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = e:\UT School\ReactJS\Project\ASP\Stackup.Api
+>>>>>>> 1cd0125814d320612290c87c528df181bbdbf524
 build_property._RazorSourceGeneratorDebug = 

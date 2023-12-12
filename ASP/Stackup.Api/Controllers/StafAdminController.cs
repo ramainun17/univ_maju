@@ -29,8 +29,24 @@ public class StafAdminController : ControllerBase
         }
         return Ok(response);
     }
+    [HttpGet("mahasiswaById")] 
+    public IActionResult GetMahasiswaById(int nim){
+        try
+        {
+            response.status = 200;
+            response.message = "Success";
+            response.data = _dbStafAdmin.GetMahasiswaById(nim);
+        }
+        catch (Exception ex)
+        {
+            
+            response.status = 500;
+            response.message = ex.Message;
+        }
+        return Ok(response);
+    }
     //POST: api/StafAdmin/Mahasiswa
-    [HttpPost("mahasiswa")]
+    [HttpPost("mahasiswa/create")]
     public IActionResult CreateMahasiswa([FromBody] Mahasiswa mhs){
         try
         {
@@ -47,7 +63,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //PUT: api/StafAdmin/Mahasiswa/id
-    [HttpPut("mahasiswa/{nim}")]
+    [HttpPut("mahasiswa/update")]
     public IActionResult UpdateMahasiswa(int nim, [FromBody] Mahasiswa mhs){
         try
         {
@@ -64,7 +80,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //DELETE: api/StafAdmin/Mahasiswa/id
-    [HttpDelete("mahasiswa/{nim}")]
+    [HttpDelete("mahasiswa/delete/{nim}")]
     public IActionResult DeleteMahasiswa(int nim){
         try
         {
@@ -99,8 +115,24 @@ public class StafAdminController : ControllerBase
         }
         return Ok(response);
     }
+    [HttpGet("dosenById")] 
+    public IActionResult GetDosenById(int id_dosen){
+        try
+        {
+            response.status = 200;
+            response.message = "Success";
+            response.data = _dbStafAdmin.GetDosenById(id_dosen);
+        }
+        catch (Exception ex)
+        {
+            
+            response.status = 500;
+            response.message = ex.Message;
+        }
+        return Ok(response);
+    }
     //POST: api/StafAdmin/Dosen
-    [HttpPost("dosen")]
+    [HttpPost("dosen/create")]
     public IActionResult CreateDosen([FromBody] Dosen dsn){
         try
         {
@@ -117,7 +149,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //PUT: api/StafAdmin/Dosen/id
-    [HttpPut("dosen/{id_dosen}")]
+    [HttpPut("dosen/update")]
     public IActionResult UpdateDosen(int id_dosen, [FromBody] Dosen dsn){
         try
         {
@@ -134,7 +166,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //DELETE: api/StafAdmin/Dosen/id
-    [HttpDelete("dosen/{id_dosen}")]
+    [HttpDelete("dosen/delete/{id_dosen}")]
     public IActionResult DeleteDosen(int id_dosen){
         try
         {
@@ -170,7 +202,23 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //POST: api/StafAdmin/Matkul
-    [HttpPost("matkul")]
+    [HttpGet("matkulById")] 
+    public IActionResult GetMatkulById(int id_matkul){
+        try
+        {
+            response.status = 200;
+            response.message = "Success";
+            response.data = _dbStafAdmin.GetMatkulById(id_matkul);
+        }
+        catch (Exception ex)
+        {
+            
+            response.status = 500;
+            response.message = ex.Message;
+        }
+        return Ok(response);
+    }
+    [HttpPost("matkul/create")]
     public IActionResult CreateMatkul([FromBody] Matkul mk){
         try
         {
@@ -187,7 +235,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //PUT: api/StafAdmin/Matkul/id
-    [HttpPut("matkul/{id_matkul}")]
+    [HttpPut("matkul/update")]
     public IActionResult UpdateMatkul(int id_matkul, [FromBody] Matkul mk){
         try
         {
@@ -204,7 +252,7 @@ public class StafAdminController : ControllerBase
         return Ok(response);
     }
     //DELETE: api/StafAdmin/Matkul/id
-    [HttpDelete("matkul/{id_matkul}")]
+    [HttpDelete("matkul/delete/{id_matkul}")]
     public IActionResult DeleteMatkul(int id_matkul){
         try
         {

@@ -258,8 +258,8 @@ public class DbStafAdmin
         }
         return mkdlist;
     }
-    public MatkulDetail GetMatkulDetailById(int id_matkul){
-        MatkulDetail mk = null;
+    public Matkul GetMatkulById(int id_matkul){
+        Matkul mk = null;
 
         try
         {
@@ -277,11 +277,11 @@ public class DbStafAdmin
                     {
                         if (reader.Read())
                         {
-                            mk = new MatkulDetail
+                            mk = new Matkul
                             {
                                 id_matkul = Convert.ToInt32(reader["Id_matkul"]),
                                 nama_matkul = reader["Nama_matkul"].ToString(),
-                                nama = reader["Nama"].ToString(),
+                                id_dosen = Convert.ToInt32(reader["Id_dosen"]),
                             };
                         }
                     }

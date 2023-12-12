@@ -21,10 +21,10 @@ function SideNav() {
   return (
     <div className="App">
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
-        <Link to="#" className="brand-link">
+        <Link to="/" className="brand-link">
           <img
-            src="dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
+            src="/dist/img/AdminLTELogo.png"
+            alt=""
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
@@ -46,7 +46,7 @@ function SideNav() {
               }`}
             >
               <Link to="#" onClick={() => handleDropdownToggle("mahasiswa")} className="nav-link">
-                <i className="nav-icon fas fa-tachometer-alt" />
+                <i className="nav-icon fas fa-user-graduate" />
                 <p>
                   Mahasiswa
                   <i className="right fas fa-angle-left" />
@@ -88,8 +88,8 @@ function SideNav() {
             <li
               className={`nav-item ${dropdownStates.dosen ? "menu-open" : ""}`}
             >
-              <Link to="/#" onClick={() => handleDropdownToggle("dosen")} className="nav-link">
-                <i className="nav-icon fas fa-tachometer-alt" />
+              <Link to="#" onClick={() => handleDropdownToggle("dosen")} className="nav-link">
+                <i className="nav-icon fas fa-user-tie" />
                 <p>
                   Dosen
                   <i className="right fas fa-angle-left" />
@@ -133,8 +133,8 @@ function SideNav() {
                 dropdownStates.administrasi ? "menu-open" : ""
               }`}
             >
-              <Link to="/#" onClick={() => handleDropdownToggle("administrasi")} className="nav-link">
-                <i className="nav-icon fas fa-tachometer-alt" />
+              <Link to="#" onClick={() => handleDropdownToggle("administrasi")} className="nav-link">
+                <i className="nav-icon fas fa-user-lock" />
                 <p>
                   Administrasi
                   <i className="right fas fa-angle-left" />

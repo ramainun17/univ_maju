@@ -208,7 +208,7 @@ public class StafAdminController : ControllerBase
         {
             response.status = 200;
             response.message = "Success";
-            response.data = _dbStafAdmin.GetMatkulDetailById(id_matkul);
+            response.data = _dbStafAdmin.GetMatkulById(id_matkul);
         }
         catch (Exception ex)
         {

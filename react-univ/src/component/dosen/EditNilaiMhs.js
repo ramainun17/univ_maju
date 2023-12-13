@@ -71,7 +71,7 @@ const EditNilaiMhs = () => {
                                 <label for="nilai" class="form-label">Nilai</label>
                                 <input type="number" name='nilai' class="form-control" id="nilai" placeholder="Masukkan NIM" value={formValue.nilai} onChange={handleChange} />
                             </div>
-                            <button type="submit" className='btn btn-success'>Simpan</button>
+                            <button type="submit" className='btn btn-danger'>Hapus</button>
                         </form>
                     </div>
                 </div>

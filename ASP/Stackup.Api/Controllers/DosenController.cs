@@ -33,6 +33,23 @@ public class DosenController : ControllerBase
         return Ok(response);
     }
 
+    [HttpGet("{id}")]
+    public IActionResult GetNilaiById(int id)
+    {
+        try
+        {
+            response.status = 200;
+            response.message = "Success";
+            response.data = _DbDosen.GetNilaiById(id);
+        }
+        catch (Exception ex)
+        {
+            response.status = 500;
+            response.message = ex.Message;
+        }
+        return Ok(response);
+    }
+
     // POST: api/Dosen
     [HttpPost]
     public IActionResult CreateNilai([FromBody] Nilai nilai)
@@ -52,14 +69,14 @@ public class DosenController : ControllerBase
     }
 
     // PUT: api/Dosen/id
-    [HttpPut("{nim}")]
-    public IActionResult UpdateNilai(int nim, [FromBody] Nilai nilai)
+    [HttpPut("{id}")]
+    public IActionResult UpdateNilai(int id, [FromBody] Nilai nilai)
     {
         try
         {
             response.status = 200;
             response.message = "Succes update Nilai";
-            _DbDosen.UpdateNilai(nim, nilai);
+            _DbDosen.UpdateNilai(id, nilai);
         }
         catch (Exception ex)
         {
@@ -67,6 +84,23 @@ public class DosenController : ControllerBase
             response.message = ex.Message;
         }
 
+        return Ok(response);
+    }
+
+    [HttpDelete("dosen/{id}")]
+    public IActionResult DeleteNilai(int id){
+        try
+        {
+            response.status = 200;
+            response.message = "Success deleted";
+            _DbDosen.DeleteNilai(id);
+        }
+        catch (Exception ex)
+        {
+            
+            response.status = 500;
+            response.message = ex.Message;
+        }
         return Ok(response);
     }
 }

@@ -46,6 +46,37 @@ public class DbDosen
         return nilaiList;
     }
 
+    public List<Nilai> GetNilaiById(int id)
+    {
+        List<Nilai> nilaiList = new List<Nilai>();
+        try{
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = $"select * from nilai where id_nilai = {id} order by nim";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                connection.Open();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Nilai nilai = new Nilai
+                        {
+                            id_matkul = Convert.ToInt32(reader["id_matkul"]),
+                            nim = Convert.ToInt32(reader["nim"]),
+                            nilai = Convert.ToInt32(reader["nilai"])
+                        };
+                        nilaiList.Add(nilai);
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return nilaiList;
+    }
+
     // Create Nilai
     public int CreateNilai (Nilai nilai)
     {
@@ -66,16 +97,30 @@ public class DbDosen
     }
 
     // Update Nilai
-    public int UpdateNilai(int nim, Nilai nilai)
+    public int UpdateNilai(int id, Nilai nilai)
     {
         using (MySqlConnection connection = _connection)
         {
-            string query = "update nilai set id_matkul = @Id_matkul, nilai = @Nilai where nim = @Nim";
+            string query = "update nilai set id_matkul = @Id_matkul, nilai = @Nilai where id_nilai = @id";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Id_matkul", nilai.id_matkul);
                 command.Parameters.AddWithValue("@Nilai", nilai.nilai);
-                command.Parameters.AddWithValue("@Nim", nilai.nim);
+                command.Parameters.AddWithValue("@id", id);
+
+                connection.Open();
+                return command.ExecuteNonQuery();
+            }
+        }
+    }
+
+    public int DeleteNilai(int id){
+        using (MySqlConnection connection = _connection)
+        {
+            string query = "DELETE FROM nilai WHERE id_nilai = @id";
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
 
                 connection.Open();
                 return command.ExecuteNonQuery();

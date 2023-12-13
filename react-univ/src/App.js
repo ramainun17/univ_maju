@@ -14,6 +14,11 @@ import AdminDsnEdit from "./component/admin/DsnEdit";
 import AdminMatkul from "./component/admin/Matkul";
 import AdminMkAdd from "./component/admin/MkAdd";
 import AdminMkEdit from "./component/admin/MkEdit";
+import NilaiMahasiswa from "./component/dosen/NilaiMahasiswa";
+import AddNilaiMhs from "./component/dosen/AddNilaiMhs";
+import DeleteNilaiMhs from "./component/dosen/DeleteNilaiMhs";
+import EditNilaiMhs from "./component/dosen/EditNilaiMhs";
+
 
 
 function App() {
@@ -35,6 +40,10 @@ function App() {
         <Route path="/admin/matkul" element={<AdminMatkul/>} />
         <Route path="/admin/matkul/tambah" element={<AdminMkAdd/>} />
         <Route path="/admin/matkul/edit/:id" element={<AdminMkEdit/>} />
+        <Route path="/dosen/nilai" element={<NilaiMahasiswa />} />
+        <Route path="/dosen/addnilai" element={<AddNilaiMhs />} />
+        <Route path="/dosen/deletenilai/:id" element={<DeleteNilaiMhs />} />
+        <Route path="/dosen/updatenilai/:id" element={<EditNilaiMhs />} />
       </Routes>
       </div>
     </Router>

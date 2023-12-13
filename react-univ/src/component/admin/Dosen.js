@@ -86,7 +86,7 @@ function AdminDosen() {
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item text-decoration-none">
-                    <Link to="/admin/dosen">Administrasi</Link>
+                    <Link className="text-decoration-none" to="/admin/dosen">Administrasi</Link>
                 </li>
                 <li className="breadcrumb-item active">Dosen</li>
               </ol>

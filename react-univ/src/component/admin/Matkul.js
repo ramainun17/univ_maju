@@ -91,7 +91,7 @@ function AdminMatkul() {
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item text-decoration-none">
-                    <Link to="/admin/matkul">Administrasi</Link>
+                    <Link className="text-decoration-none" to="/admin/matkul">Administrasi</Link>
                 </li>
                 <li className="breadcrumb-item active">Mata Kuliah</li>
               </ol>

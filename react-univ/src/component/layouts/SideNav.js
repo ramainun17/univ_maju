@@ -21,14 +21,8 @@ function SideNav() {
   return (
     <div className="App">
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
-        <Link to="/" className="brand-link">
-          <img
-            src="/dist/img/AdminLTELogo.png"
-            alt=""
-            className="brand-image img-circle elevation-3"
-            style={{ opacity: ".8" }}
-          />
-          <span className="brand-text font-weight-light">UNIV MAJU</span>
+        <Link to="/" className="brand-link text-decoration-none">
+          <span className="mx-5"><i className="nav-icon fas fa-laptop-code mr-2" /><strong className="brand-text font-weight-light">UNIV MAJU</strong></span>
         </Link>
 
         {/* ... (Bagian lain dari sidebar) */}

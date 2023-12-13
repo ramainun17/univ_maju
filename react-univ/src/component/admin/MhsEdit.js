@@ -74,7 +74,7 @@ function AdminMhsEdit() {
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item text-decoration-none">
-                    <Link to="/admin/mahasiswa">Administrasi</Link>
+                    <Link className="text-decoration-none" to="/admin/mahasiswa">Administrasi</Link>
                 </li>
                 <li className="breadcrumb-item active">Mahasiswa</li>
               </ol>

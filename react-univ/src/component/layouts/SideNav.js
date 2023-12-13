@@ -98,23 +98,29 @@ function SideNav() {
               {/* Submenu */}
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link to="./index.html" className="nav-link">
+                  <Link to="dosen/nilai" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v1</p>
+                    <p>Nilai Mahasiswa</p>
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link to="dosen/addnilai" className="nav-link">
+                    <i className="far fa-circle nav-icon" />
+                    <p>Tambah Nilai</p>
+                  </Link>
+                </li>
+                {/* <li className="nav-item">
                   <Link to="./index2.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v2</p>
+                    <p>Edit Nilai</p>
                   </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="./index3.html" className="nav-link">
+                </li> */}
+                {/* <li className="nav-item">
+                  <Link to="dosen/deletenilai" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v3</p>
+                    <p>Hapus Nilai</p>
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
             {/* Item menu tanpa submenu */}

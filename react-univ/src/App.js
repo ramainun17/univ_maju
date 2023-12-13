@@ -18,6 +18,8 @@ import NilaiMahasiswa from "./component/dosen/NilaiMahasiswa";
 import AddNilaiMhs from "./component/dosen/AddNilaiMhs";
 import DeleteNilaiMhs from "./component/dosen/DeleteNilaiMhs";
 import EditNilaiMhs from "./component/dosen/EditNilaiMhs";
+import Mahasiswa from "./component/mahasiswa/Mahasiswa";
+import MahasiswaID from "./component/mahasiswa/MhsId";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
           <Route path="/dosen/addnilai" element={<AddNilaiMhs />} />
           <Route path="/dosen/deletenilai/:id" element={<DeleteNilaiMhs />} />
           <Route path="/dosen/updatenilai/:id" element={<EditNilaiMhs />} />
+          <Route path="/mahasiswa" element={<Mahasiswa />} />
+          <Route path="/mahasiswa/:id" element={<MahasiswaID />} />
         </Routes>
       </div>
     </Router>

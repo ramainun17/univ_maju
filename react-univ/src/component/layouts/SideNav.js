@@ -55,21 +55,9 @@ function SideNav() {
               {/* Submenu */}
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link to="./index.html" className="nav-link">
+                  <Link to="/mahasiswa" className="nav-link">
                     <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v1</p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="./index2.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v2</p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="./index3.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Dashboard v3</p>
+                    <p>List Mahasiswa</p>
                   </Link>
                 </li>
               </ul>

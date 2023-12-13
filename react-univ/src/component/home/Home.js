@@ -1,64 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DataTable from "react-data-table-component";
 import { Link } from "react-router-dom";
 
 function Home() {
-  //define state
-  const [datamahasiswa, setDatamahasiswa] = useState([]);
-  //useEffect hook
-  React.useEffect(() => {
-    //panggil method "fetchData"
-    fectData();
+  const [totalStudents, setTotalStudents] = useState(0);
+
+  useEffect(() => {
+    // Fetch all students from your API endpoint
+    axios.get("https://localhost:7208/api/Mahasiswa")
+      .then(response => {
+        // Assuming the API response is an array of students
+        const students = response.data.data;
+
+        // Calculate the total number of students
+        const totalCount = students.length;
+        
+        // Update the state with the total count
+        setTotalStudents(totalCount);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
-  //function "fetchData"
-  const fectData = async () => {
-    //fetching
-    const response = await axios.get(
-      "https://localhost:7208/api/StafAdmin/mahasiswa"
-    );
-    //get response data
-    const data = await response.data.data;
-    //assign response data to state "datamahasiswa"
-    setDatamahasiswa(data);
-    console.log(data);
-  };
-  const columns = [
-    {
-      name: "NIM",
-      selector: (row) => row.nim,
-      sortable: true,
-    },
-    {
-      name: "Nama",
-      selector: (row) => row.nama,
-      sortable: true,
-    },
-    {
-      name: "Prodi",
-      selector: (row) => row.prodi,
-      sortable: true,
-    },
-  ];
+
+  const [totaldosens, setTotaldosens] = useState(0);
+
+  useEffect(() => {
+    // Fetch all dosens from your API endpoint
+    axios.get("https://localhost:7208/api/StafAdmin/dosen")
+      .then(response => {
+        // Assuming the API response is an array of dosens
+        const dosens = response.data.data;
+
+        // Calculate the total number of dosens
+        const totalCount = dosens.length;
+        
+        // Update the state with the total count
+        setTotaldosens(totalCount);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  const [totalmatkuls, setTotalmatkuls] = useState(0);
+
+  useEffect(() => {
+    // Fetch all matkuls from your API endpoint
+    axios.get("https://localhost:7208/api/StafAdmin/matkul")
+      .then(response => {
+        // Assuming the API response is an array of matkuls
+        const matkuls = response.data.data;
+
+        // Calculate the total number of matkuls
+        const totalCount = matkuls.length;
+        
+        // Update the state with the total count
+        setTotalmatkuls(totalCount);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
       <div className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
-            <div className="col-sm-6">
-              <h1 className="m-0">Dashboard</h1>
+            <div className="col">
+              <h1 className="m-0 text-center text-uppercase bold">
+                Universitas Maju
+              </h1>
             </div>
-            {/* /.col */}
-            <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item">
-                  <Link to="#">Universitas Maju</Link>
-                </li>
-                <li className="breadcrumb-item active">Dashboard</li>
-              </ol>
-            </div>
-            {/* /.col */}
           </div>
           {/* /.row */}
         </div>
@@ -70,82 +84,72 @@ function Home() {
         <div className="container-fluid">
           {/* Small boxes (Stat box) */}
           <div className="row">
-            <div className="col-lg-3 col-6">
-              {/* small box */}
-              <div className="small-box bg-info">
-                <div className="inner">
-                  <h3>150</h3>
-                  <p>New Orders</p>
+              <div className="col-lg-3 col-6">
+                {/* small box */}
+                <div className="small-box bg-info">
+                  <div className="inner">
+                    <h3>{totalStudents}</h3>
+                    <p>Mahasiswa</p>
+                  </div>
+                  <div className="icon">
+                    <i className="fas fa-user-graduate" />
+                  </div>
+                  <Link to="#" className="small-box-footer">
+                    More info <i className="fas fa-arrow-circle-right" />
+                  </Link>
                 </div>
-                <div className="icon">
-                  <i className="ion ion-bag" />
-                </div>
-                <Link to="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </Link>
               </div>
-            </div>
-            {/* ./col */}
-            <div className="col-lg-3 col-6">
-              {/* small box */}
-              <div className="small-box bg-success">
-                <div className="inner">
-                  <h3>
-                    53<sup style={{ fontSize: 20 }}>%</sup>
-                  </h3>
-                  <p>Bounce Rate</p>
+              {/* ./col */}
+              <div className="col-lg-3 col-6">
+                {/* small box */}
+                <div className="small-box bg-success">
+                  <div className="inner">
+                    <h3>
+                      {totaldosens}
+                    </h3>
+                    <p>Dosen</p>
+                  </div>
+                  <div className="icon">
+                    <i className="fas fa-user-tie" />
+                  </div>
+                  <Link to="#" className="small-box-footer">
+                    More info <i className="fas fa-arrow-circle-right" />
+                  </Link>
                 </div>
-                <div className="icon">
-                  <i className="ion ion-stats-bars" />
-                </div>
-                <Link to="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </Link>
               </div>
-            </div>
-            {/* ./col */}
-            <div className="col-lg-3 col-6">
-              {/* small box */}
-              <div className="small-box bg-warning">
-                <div className="inner">
-                  <h3>44</h3>
-                  <p>User Registrations</p>
+              {/* ./col */}
+              <div className="col-lg-3 col-6">
+                {/* small box */}
+                <div className="small-box bg-warning">
+                  <div className="inner">
+                    <h3>{totalmatkuls}</h3>
+                    <p>Mata Kuliah</p>
+                  </div>
+                  <div className="icon">
+                    <i className="fas fa-book-open" />
+                  </div>
+                  <Link to="#" className="small-box-footer">
+                    More info <i className="fas fa-arrow-circle-right" />
+                  </Link>
                 </div>
-                <div className="icon">
-                  <i className="ion ion-person-add" />
-                </div>
-                <Link to="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </Link>
               </div>
-            </div>
-            {/* ./col */}
-            <div className="col-lg-3 col-6">
-              {/* small box */}
-              <div className="small-box bg-danger">
-                <div className="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+              {/* ./col */}
+              <div className="col-lg-3 col-6">
+                {/* small box */}
+                <div className="small-box bg-danger">
+                  <div className="inner">
+                    <h3>CRUD</h3>
+                    <p>Administrasi</p>
+                  </div>
+                  <div className="icon">
+                    <i className="ion ion-pie-graph" />
+                  </div>
+                  <Link to="#" className="small-box-footer">
+                    More info <i className="fas fa-arrow-circle-right" />
+                  </Link>
                 </div>
-                <div className="icon">
-                  <i className="ion ion-pie-graph" />
-                </div>
-                <Link to="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </Link>
               </div>
-            </div>
-            {/* ./col */}
-          </div>
-        </div>
-        {/* /.container-fluid */}
-      </section>
-      <section className="content">
-        <div className="container-fluid">
-          {/* Small boxes (Stat box) */}
-          <div className="col">
-            <h5 className="my-3">Data Mahasiswa</h5>
-            <DataTable columns={columns} data={datamahasiswa} pagination />
+              {/* ./col */}
           </div>
           
         </div>

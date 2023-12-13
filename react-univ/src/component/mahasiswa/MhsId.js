@@ -59,7 +59,7 @@ function MahasiswaId() {
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item text-decoration-none">
-                  <Link to="/mahasiswa">Mahasiswa</Link>
+                  <Link className=" text-decoration-none" to="/mahasiswa">Mahasiswa</Link>
                 </li>
                 <li className="breadcrumb-item active">List Mahasiswa</li>
               </ol>

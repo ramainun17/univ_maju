@@ -20,7 +20,9 @@ const DeleteNilaiMhs = () => {
         try {
             const response = await axios.get("http://localhost:5019/api/Dosen/" + id);
             const data = await response.data.data[0];
-            setFormValue(data);
+            if (data != null) {
+                setFormValue(data);
+            }
             // console.log(data)
         }
         catch (error) {
